@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile;
 
 plugins {
-    kotlin("jvm") version "1.6.10"
+    kotlin("jvm") version "1.6.20-RC"
 }
 
 group = "com.mikai233"
@@ -30,20 +30,10 @@ val kotlinxVersion = "1.6.0"
 subprojects {
     apply(plugin = "kotlin")
     dependencies {
-        implementation("com.typesafe.akka:akka-actor_$scalaVersion:$akkaVersion")
-        implementation("com.typesafe.akka:akka-cluster_$scalaVersion:$akkaVersion")
-        implementation("com.typesafe.akka:akka-cluster-sharding_$scalaVersion:$akkaVersion")
-        implementation("com.typesafe.akka:akka-slf4j_$scalaVersion:$akkaVersion")
-        implementation("io.altoo:akka-kryo-serialization_$scalaVersion:2.3.0") {
-            exclude("com.typesafe.akka", "akka-actor_2.13")
-        }
-        implementation("ch.qos.logback:logback-classic:1.2.10")
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:$kotlinxVersion")
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxVersion")
-        runtimeOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:$kotlinxVersion")
-
         testImplementation(kotlin("test"))
+    }
+    repositories {
+        mavenCentral()
     }
 }
 
