@@ -3,11 +3,16 @@ version = "1.0-SNAPSHOT"
 
 dependencies {
     apply(plugin = "scala")
+    //akka
     implementation(akka.actor)
     implementation(akka.cluster)
     implementation(akka.cluster.sharding)
-
-    implementation(lib.kotlinx.coroutines.core)
-    implementation(lib.kotlinx.coroutines.core.jvm)
-    implementation(lib.kotlinx.coroutines.jdk8)
+    implementation(akka.bundles.log)
+    //lib
+    implementation(lib.bundles.kotlinx.coroutines)
+    implementation(lib.kotlin.stdlib.jdk8)
+    implementation(lib.kotlin.reflect)
+    //tools
+    implementation(tools.protobuf.kotlin)
+    implementation(tools.reflections)
 }

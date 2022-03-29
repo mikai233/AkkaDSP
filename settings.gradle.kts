@@ -13,7 +13,7 @@ pluginManagement {
 dependencyResolutionManagement {
     versionCatalogs {
         create("lib") {
-            val kotlinVersion = "1.6.20-RC"
+            val kotlinVersion = "1.6.20-RC2"
             val kspVersion = "1.0.2"
             version("kotlin", kotlinVersion)
             version("kotlinx", "1.6.0")
@@ -32,9 +32,11 @@ dependencyResolutionManagement {
             alias("kotlinx.serialization.core.jvm").to(
                 "org.jetbrains.kotlinx", "kotlinx-serialization-core-jvm"
             ).versionRef("kotlinx-serialization")
+            alias("kotlin.reflect").to("org.jetbrains.kotlin", "kotlin-reflect").versionRef("kotlin")
             alias("symbol.processing").to("com.google.devtools.ksp", "symbol-processing").versionRef("ksp")
             alias("symbol.processing.api").to("com.google.devtools.ksp", "symbol-processing-api").versionRef("ksp")
             alias("scala").to("org.scala-lang", "scala-library").versionRef("scala")
+
             bundle(
                 "kotlinx.coroutines",
                 listOf("kotlinx.coroutines.core", "kotlinx.coroutines.core.jvm", "kotlinx.coroutines.jdk8")
@@ -47,6 +49,7 @@ dependencyResolutionManagement {
             version("akka-http", "10.2.7")
             version("serialization", "2.3.0")
             version("logback-classic", "1.2.10")
+            version("log4j-kotlin", "1.1.0")
 
             alias("actor").to("com.typesafe.akka", "akka-actor_$akkaScalaVersion").versionRef("akka")
             alias("cluster").to("com.typesafe.akka", "akka-cluster_$akkaScalaVersion").versionRef("akka")
@@ -61,7 +64,9 @@ dependencyResolutionManagement {
                 .versionRef("serialization")
             alias("log4j").to("com.typesafe.akka", "akka-slf4j_$akkaScalaVersion").versionRef("akka")
             alias("logback.classic").to("ch.qos.logback", "logback-classic").versionRef("logback-classic")
-            bundle("log", listOf("log4j", "logback.classic"))
+            alias("log4j.api.kotlin").to("org.apache.logging.log4j", "log4j-api-kotlin").versionRef("log4j-kotlin")
+
+            bundle("log", listOf("log4j", "logback.classic", "log4j.api.kotlin"))
         }
         create("tools") {
             version("protobuf", "3.19.4")
@@ -78,6 +83,7 @@ dependencyResolutionManagement {
             version("ktorm", "3.4.1")
             version("kotlinpoet", "1.10.2")
             version("mysql", "8.0.28")
+            version("reflections", "0.10.2")
 
             alias("protoc").to("com.google.protobuf", "protoc").versionRef("protobuf")
             alias("protobuf").toPluginId("com.google.protobuf").versionRef("protobuf-plugin")
@@ -105,6 +111,8 @@ dependencyResolutionManagement {
             alias("kotlinpoet").to("com.squareup", "kotlinpoet").versionRef("kotlinpoet")
             alias("kotlinpoet.ksp").to("com.squareup", "kotlinpoet-ksp").versionRef("kotlinpoet")
             alias("mysql.connector.java").to("mysql", "mysql-connector-java").versionRef("mysql")
+            alias("reflections").to("org.reflections", "reflections").versionRef("reflections")
+
             bundle("jackson", listOf("jackson.module.kotlin", "jackson.dataformat.yaml"))
             bundle("netty", listOf("netty", "netty.transport.native.epoll", "netty.transport.native.kqueue"))
         }

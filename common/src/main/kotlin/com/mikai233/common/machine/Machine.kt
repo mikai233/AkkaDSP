@@ -1,3 +1,5 @@
+package com.mikai233.common.machine
+
 import com.mikai233.common.config.Item
 import com.mikai233.common.tools.TickTimer
 import kotlin.math.min
@@ -34,7 +36,7 @@ open class Config(
     val powerUsage: Double = 0.0
 ) {
 //    override fun toString(): String {
-//        return "Config(input=$input, inputSpeed=$inputSpeed, output=$output, outputSpeed=$outputSpeed, powerUsage=$powerUsage)"
+//        return "com.mikai233.common.machine.Config(input=$input, inputSpeed=$inputSpeed, output=$output, outputSpeed=$outputSpeed, powerUsage=$powerUsage)"
 //    }
 }
 
