@@ -13,7 +13,7 @@ pluginManagement {
 dependencyResolutionManagement {
     versionCatalogs {
         create("lib") {
-            val kotlinVersion = "1.6.20-RC2"
+            val kotlinVersion = "1.7.0"
             val kspVersion = "1.0.2"
             version("kotlin", kotlinVersion)
             version("kotlinx", "1.6.0")
@@ -118,5 +118,3 @@ dependencyResolutionManagement {
         }
     }
 }
-include("common")
-include("galaxy")
